@@ -75,20 +75,18 @@ response:city,
 updateOneCity : async(request,response,next)=>{
     const {id} = request.params
     let cities;
-    let error = null;
     let success = true;
     try {
        
  cities = await City.findOneAndUpdate({_id: id}, request.body, {new : true})
 response.json({
     response: cities,
-    success,
-    error
+    success
 })    
 } catch (error) {
     console.log(err);
     success = false;
-    error = err;
+   next(err)
     }
 
 },
