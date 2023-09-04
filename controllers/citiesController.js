@@ -13,7 +13,7 @@ try {
     cities = await City.find() 
     response.json({
         response: cities,
-        success,
+        success,    
         error
 })
 } catch (err) {
