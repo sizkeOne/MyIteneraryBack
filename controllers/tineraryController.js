@@ -1,18 +1,21 @@
 import { request, response } from "express"
-import cities from '../cities.js'; 
-import City from "../Models/City.js";
+import tineraries from "../tineraries.js";
 import Tinerary from "../Models/Tinerary.js";
    
 
-const citiesController = {
-getAllCities: async (request,response, next) =>{
-    let cities;
+const tineraryController = {
+getAllTineraries: async (request,response, next) =>{
+    let tineraries;
     let error = null;
     let success = true;
 try {
-    cities = await City.find() 
+    tineraries = await Tinerary.find().populate({
+        path:'nameCity',
+        select:'nameCity'
+    }) 
+
     response.json({
-        response: cities,
+        response: tineraries,
         success,
         error
 })
@@ -25,14 +28,14 @@ try {
  
     
  },  
- getOneCity: async (request,response, next) =>{
+ getOneTinerary: async (request,response, next) =>{
     const { id } = request.params
     console.log(id);
-    let cities;
+    let tineraries;
     let error = null;
     let success = true;
 try {
-    cities = await City.find({ _id:id}) 
+    tineraries = await Tinerary.find({ _id:id}) 
     
 } catch (err) {
     console.log(err);
@@ -41,30 +44,23 @@ try {
 }
  
     response.json({
-        response: cities,
+        response: tineraries,
         success: true,
         error: null
 })
 
  } ,
 
- createOneCity : async(request,response, next) =>{
+ createOneTinerary : async(request,response, next) =>{
     console.log(request.body);
-    let city;
+    let tinerary;
     let error = null
     let success = true
-   try {
-    
-    let aux =  await Tinerary.find({nameCity : request.body.nameCity})
-    const query = {... request.body}
-    query.nameCity = aux._id 
-    console.log(query);
-
-    city = await City.create(query)
-   console.log(city);
+   try {    
+    tinerary = await Tinerary.create(request.body)
+   console.log(tineraries);
    
 }
-
 
 catch (err) {
     console.log(err);
@@ -73,21 +69,21 @@ catch (err) {
    }
     
     response.json({
-response:city,
+response:tinerary,
         success, 
         error 
  })
 },
 
-updateOneCity : async(request,response,next)=>{
+updateOneTinerary : async(request,response,next)=>{
     const {id} = request.params
-    let cities;
+    let tineraries;
     let success = true;
     try {
        
- cities = await City.findOneAndUpdate({_id: id}, request.body, {new : true})
+        tineraries = await Tinerary.findOneAndUpdate({_id: id}, request.body, {new : true})
 response.json({
-    response: cities,
+    response: tineraries,
     success
 })    
 } catch (error) {
@@ -98,15 +94,15 @@ response.json({
 
 },
 
-deleteOneCity:  async(request,response,next)=>{
+deleteOneTinerary:  async(request,response,next)=>{
     const {id} = request.params
-    let cities;
+    let tineraries;
     let success = true;
     try {
        
- cities = await City.findOneAndDelete({_id: id}, request.body, {new : true})
+ tineraries = await Tinerary.findOneAndDelete({_id: id}, request.body, {new : true})
 response.json({
-    response: cities,
+    response: tineraries,
     success
 })    
 } catch (error) {
@@ -117,4 +113,4 @@ response.json({
 
 },
  }
-export default citiesController
+export default tineraryController
