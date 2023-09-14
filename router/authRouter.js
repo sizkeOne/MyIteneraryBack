@@ -10,8 +10,8 @@ import passport from "../middlewares/passport.js";
 const authRouter = Router()
 const {signUp, signIn, loginWithToken} = authController 
 
-authRouter.post('/',  validator(signUpSchema),emailExists,  signUp )
-authRouter.get('/',  validator(signInSchema), signIn )
+authRouter.post('/up',  validator(signUpSchema),emailExists,  signUp )
+authRouter.post('/in', signIn )
 authRouter.get('/token', passport.authenticate('jwt',{session:false}), loginWithToken )
 
 
