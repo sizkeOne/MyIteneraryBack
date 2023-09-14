@@ -4,7 +4,7 @@ const tinerarySchema = Schema({
 
     photo: { type: String, required: true},
     name:{type: String, required: true},
-    nameCity:[{ type: Types.ObjectId, ref:"city",required: true}],
+    nameCity:{ type: Types.ObjectId, ref:"city",required: true},
     userName:{type: String, required: true},
     userPhoto:{type: String, required: true},
     duration:  { type: String, required: true},

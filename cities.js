@@ -54,7 +54,7 @@ const Cities  = [
       "language": "Spanish"
     },
     {
-      "photo": "https://uceap.universityofcalifornia.edu/sites/default/files/marketing-images/program-page-images/chinese-in-beijing-glance.jpg",
+      "photo": "  https://planetofhotels.com/guide/sites/default/files/styles/paragraph__live_banner__lb_image__1880bp/public/live_banner/Beijing-2.jpg",
       "nameCity": "Beijing",
        "name": "Beijing",
        "country": "China",

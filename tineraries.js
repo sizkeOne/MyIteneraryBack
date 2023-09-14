@@ -10,7 +10,7 @@ const tineraries = [
     "duration":  "4 hours"   ,
     "price":  4  ,
     "likes": 0  ,
-    "tags": [ "#Beautyfull" , "#LoveThis" , "#Great" ],
+    "tags": [ " #Beautyfull  " , " #LoveThis " , " #Great " ],
     "comments" : " "   },
 
 
@@ -23,7 +23,7 @@ const tineraries = [
     "duration":  "2 hours"   ,
     "price":  2 ,
     "likes": 0  ,
-    "tags":  ["#StateOfLiberty" , " #Dinners" ," #Shoppings"],
+    "tags":  [" #StateOfLiberty  " , " #Dinners " ," #Shoppings "],
     "comments" : " "   },
 
 
@@ -35,7 +35,7 @@ const tineraries = [
     "duration":  "3 hours"   ,
     "price":  2  ,
     "likes": 0  ,
-    "tags": ["#Park" , "#Museums" , "#Galeries"],
+    "tags": [" #Park " , " #Museums " , " #Galeries "],
     "comments" : " "   },
 
     {   "photo": "url"   ,
@@ -46,7 +46,7 @@ const tineraries = [
     "duration":  "2 hours"   ,
     "price":  1  ,
     "likes": 0  ,
-    "tags": ["#Science" , "#Math" , "#Olymp"],
+    "tags": [" #Science " , " #Math " , " #Olymp "],
     "comments" : " "   },
 
 
@@ -60,8 +60,8 @@ const tineraries = [
         "duration": "4 hours",
         "price": 4,
         "likes": 0,
-        "tags": ["#culinary", "#food", "#culinary travel"],
-        "comments":""
+        "tags": [" #Culinary ", " #Food ", " #Culinary travel "],
+        "comments":" "
     },
     {
         "photo": "url",
@@ -73,8 +73,8 @@ const tineraries = [
         "duration": "3 hours",
         "price": 3,
         "likes": 0,
-        "tags": ["tourism", "culture", "history"],
-        "comments": ""
+        "tags": [" #Tourism ", " #Culture ", " #History "],
+        "comments": " "
       },
 
 

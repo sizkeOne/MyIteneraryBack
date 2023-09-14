@@ -25,17 +25,47 @@ try {
     error = err;
     next(err)
 }
- 
+
     
  },  
+
+getTineraryByCity:async (request,response, next) =>{
+    let tineraries;
+    let error = null;
+    const {id} = request.params
+    let success = true;
+try {
+    tineraries = await Tinerary.find( {nameCity:id })
+
+    response.json({
+        response: tineraries,
+        success,
+        error
+})
+} catch (err) {
+    console.log(err);
+    success = false;
+    error = err;
+    next(err)
+}
+
+    
+},
+
+
  getOneTinerary: async (request,response, next) =>{
-    const { id } = request.params
-    console.log(id);
+    const { name } = request.params
+   console.log(name)
+    const query = {}
+    query.name = {$regex:`^${name}`}
+    
     let tineraries;
     let error = null;
     let success = true;
+
+
 try {
-    tineraries = await Tinerary.find({ _id:id}) 
+    tineraries = await Tinerary.find(query) 
     
 } catch (err) {
     console.log(err);
@@ -57,7 +87,7 @@ try {
     let error = null
     let success = true
    try {    
-    tinerary = await Tinerary.create(request.body)
+    tinerary = await Tinerary.create(tineraries)
    console.log(tineraries);
    
 }
